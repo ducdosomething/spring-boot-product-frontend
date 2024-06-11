@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <form id="frm-search">
+        <div>
+            <input type="text" id="search-product" name="name" placeholder="search"/>
+            <div>
+                <button type="button" onclick="showProductByName()">Search</button>
+                <button type="button" onclick="getAllProduct()">Back</button>
+            </div>
+        </div>
+    </form>
+
+    <form id="frm-type">
+        <select name="" id="type-option">
+            <option value="1">Phone</option>
+            <option value="2">Laptop</option>
+        </select>
+        <button type="button" onclick="showProductByType()">Submit</button>
+        <button type="button" onclick="getAllProduct()">Back</button>
+    </form>
+
+    <button type="button" onclick="showFormCreate()">Add New Product</button>
+    <form style="display: none" id="form-create">
+        <input id="name" type="text" placeholder="Enter Name"> <br>
+        <input id="price" type="text" placeholder="Enter Price"> <br>
+        <input id="status" type="text" placeholder="Enter Status"> <br>
+        <select name="type" id="type">
+            <option value="1">Phone</option>
+            <option value="2">Laptop</option>
+        </select> <br>
+        <button type="button" onclick="createNewProduct()">Save</button>
+        <button onclick="getAllProduct()">Cancel</button>
+    </form>
+
+    <table id="tb-head">
+        <thead >
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>PRICE</th>
+            <th>STATUS</th>
+            <th>TYPE</th>
+            <th>ACTION</th>
+        </tr>
+        </thead>
+        <tbody id="tb-product">
+        </tbody>
+    </table>
+
+    <!-- form xoa -->
+    <form style="display: none" id="form-update">
+        <input id="name-update" type="text" placeholder="Enter Name"> <br>
+        <input id="price-update" type="text" placeholder="Enter Price"> <br>
+        <input id="status-update" type="text" placeholder="Enter Status"> <br>
+        <select name="type-update" id="type-update">
+            <option value="1">Phone</option>
+            <option value="2">Laptop</option>
+        </select> <br>
+        <button type="button" id="save-update-button">Save</button>
+        <button type="button" onclick="hideFormUpdate()">Cancel</button>
+    </form>
+
+    <!-- Form xoa -->
+    <div id="delete-confirmation" style="display: none;">
+        <p>Are you sure you want to delete the following product?</p>
+        <p id="delete-product-info"></p>
+        <button type="button" id="confirm-delete-button">Yes, delete</button>
+        <button onclick="window.location.href = 'index.html'">Cancel</button>
+    </div>
+</body>
+</html>
